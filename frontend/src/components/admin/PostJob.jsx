@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Navbar from '../shared/Navbar'
-import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { useSelector } from 'react-redux'
@@ -8,9 +7,10 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import axios from 'axios'
 import { JOB_API_END_POINT } from '@/utils/constant'
 import { toast } from 'sonner'
-import { useNavigate } from 'react-router-dom'
-import { Loader2 } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
+import { ArrowDownLeftFromCircle, ArrowDownLeftIcon, ArrowLeft, ArrowLeftIcon, Loader2 } from 'lucide-react'
 import Footer from '../shared/Footer'
+import { FaBackspace } from 'react-icons/fa'
 
 //ADMINT->POSTING A JOB
 const PostJob = () => {
@@ -52,13 +52,15 @@ const PostJob = () => {
             setLoading(false);
         }
     }
-
     return (
         <div>
             <Navbar />
             <div className='py-20'>
                 <div className=' flex items-center justify-center w-screen my-5 '>
                     <form onSubmit={submitHandler} className='bg-blue-100 p-8 max-w-4xl border border-gray-200 shadow-lg rounded-md max-sm:min-w-[96%] max-sm:my-10'>
+                        <div className='mb-2 text-blue-600'>
+                            <Link to={"/admin/jobs"} className='flex gap-1' ><ArrowLeft />Back</Link>
+                        </div>
                         <h1 className='text-2xl font-bold max-sm:text-2xl max-sm:font-bold max-sm:mb-5'>Post Job</h1>
                         <div className='grid grid-cols-2 gap-y-3 gap-x-8 max-sm:grid max-sm:grid-cols-1 max-sm:gap-6'>
                             <div>

@@ -11,6 +11,7 @@ import Footer from '../shared/Footer'
 
 //ADMIN->JOBS
 const AdminJobs = () => {
+
   useGetAllAdminJobs();
   const [input, setInput] = useState("");
   const navigate = useNavigate();

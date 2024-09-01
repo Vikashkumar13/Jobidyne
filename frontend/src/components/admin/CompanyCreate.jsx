@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import Navbar from '../shared/Navbar'
-import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { COMPANY_API_END_POINT } from '@/utils/constant'
 import { toast } from 'sonner'
@@ -18,10 +17,7 @@ const CompanyCreate = () => {
     const dispatch = useDispatch();
     const registerNewCompany = async () => {
         try {
-            const res = await axios.post(`${COMPANY_API_END_POINT}/register`, { companyName }, {
-                headers: { 'Content-Type': 'application/json' },
-                withCredentials: true
-            });
+            const res = await axios.post(`${COMPANY_API_END_POINT}/register`, companyName);
             //validation-data
             if (res?.data?.success) {
                 dispatch(setSingleCompany(res.data.company));
@@ -34,11 +30,13 @@ const CompanyCreate = () => {
             console.log(error);
         }
     }
+
     return (
         <div>
             <Navbar />
             <div className='py-20'>
                 <div className='max-w-4xl mx-auto bg-blue-100  rounded-md py-5 px-5 max-sm:min-w-[96%] max-sm:mx-2'>
+
                     <div className='my-10'>
                         <h1 className='font-bold text-2xl my-2'>Your Company Name</h1>
                         <p className='text-gray-800 max-sm:text-xl'>What would you like to give your company name? you can change this later.</p>

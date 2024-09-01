@@ -28,9 +28,7 @@ const Login = () => {
         e.preventDefault();
         try {
             dispatch(setLoading(true));
-            const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
-                headers: { "Content-Type": "application/json" }, withCredentials: true,
-            });
+            const res = await axios.post(`${USER_API_END_POINT}/login`, input);
             if (res.data.success) {
                 dispatch(setUser(res.data.user));
                 navigate("/");
@@ -39,7 +37,8 @@ const Login = () => {
         }
         catch (error) {
             console.log(error);
-            toast.error(error.response.data.message);
+            // toast.error(error.response.data.message);
+            toast.error(error.message)
         }
         finally {
             dispatch(setLoading(false));
@@ -47,8 +46,11 @@ const Login = () => {
     }
     //if user exist then take them on home page
     useEffect(() => {
-        if (user) { navigate("/"); }
+        if (user) {
+            navigate("/");
+        }
     }, [])
+
     return (
         <div>
             {/* NAVBAR */}

@@ -18,7 +18,7 @@ const Navbar = () => {
 
     const logoutHandler = async () => {
         try {
-            const res = await axios.get(`${USER_API_END_POINT}/logout`, { withCredentials: true });
+            const res = await axios.post(`${USER_API_END_POINT}/logout`, { withCredentials: true });
             if (res.data.success) {
                 dispatch(setUser(null));
                 navigate("/");
@@ -131,7 +131,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div>
-                        <h1 className='text-2xl font-bold'>Job<span className='text-[#F83002]'>Portal</span></h1>
+                        <h1 className='text-2xl font-bold'>Jobi<span className='text-[#F83002]'>dyne</span></h1>
                     </div>
                     <div className=''>
                         {

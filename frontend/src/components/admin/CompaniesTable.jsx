@@ -59,7 +59,6 @@ const CompaniesTable = () => {
                                     </Popover>
                                 </TableCell>
                             </tr>
-
                         ))
                     }
                 </TableBody>
