@@ -66,7 +66,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     }
     return (
         <div>
-            <form onSubmit={submitHandler} className='grid gap-4 py-4 px-4'>
+            <form className='grid gap-4 py-4 px-4'>
                 <Dialog open={open}>
                     <DialogContent className="max-sm:max-w-[96%] bg-gray-200 rounded-md" onInteractOutside={() => setOpen(false)}>
                         <DialogHeader>
@@ -110,7 +110,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                         </div>
                         <DialogFooter>
                             {
-                                loading ? <Button className="w-full my-4 max-sm:text-xl max-sm:py-6"> <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Please wait </Button> : <Button type="submit" className="w-full my-5 max-sm:text-xl max-sm:py-6">Update</Button>
+                                loading ? <Button className="w-full my-4 max-sm:text-xl max-sm:py-6"> <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Please wait </Button> : <Button className="w-full my-5 max-sm:text-xl max-sm:py-6" onClick={submitHandler}>Update</Button>
                             }
                         </DialogFooter>
                     </DialogContent>

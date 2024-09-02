@@ -101,7 +101,7 @@ const Navbar = () => {
                 </div>
             </div>
             {/* MOBILE NAVBAR */}
-            <div className="navbar  bg-blue-300 hidden max-sm:block fixed">
+            <div className="navbar bg-blue-300 hidden max-sm:block fixed">
                 <div className="navbar-start flex items-center justify-between gap-5">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -181,7 +181,6 @@ const Navbar = () => {
                 </div>
             </div>
         </>
-
     )
 }
 

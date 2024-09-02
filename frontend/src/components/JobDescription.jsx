@@ -58,40 +58,51 @@ const JobDescription = () => {
         <>
             <Navbar />
             <div className="py-20">
-                <div className='py-10'>
-                    <div className='max-w-4xl bg-blue-200 shadow-xl rounded-md px-5 py-5 mx-auto max-sm:max-w-[95%]'>
-                        <div className='flex items-center justify-between'>
-                            <div>
-                                <div className='flex flex-row items-center'>
+                {
+                    user ? (<>
+                        <div className='py-10'>
+                            <div className='max-w-4xl bg-blue-200 shadow-xl rounded-md px-5 py-5 mx-auto max-sm:max-w-[95%]'>
+                                <div className='flex items-center justify-between'>
                                     <div>
-                                        <h1 className='font-bold text-xl'>{singleJob?.title}</h1>
-                                    </div>
-                                    <div className='ml-10 max-sm:ml-10 '>
-                                        <Button onClick={isApplied ? null : applyJobHandler} disabled={isApplied}
-                                            className={`rounded-md ${isApplied ? 'bg-gray-600 cursor-not-allowed' : 'bg-[#7209b7] hover:bg-[#5f32ad]'}`}>
-                                            {isApplied ? 'Applied' : 'Apply Now'}
-                                        </Button>
+                                        <div className='flex flex-row items-center'>
+                                            <div>
+                                                <h1 className='font-bold text-xl'>{singleJob?.title}</h1>
+                                            </div>
+                                            <div className='ml-10 max-sm:ml-10 '>
+                                                <Button onClick={isApplied ? null : applyJobHandler} disabled={isApplied}
+                                                    className={`rounded-md ${isApplied ? 'bg-gray-600 cursor-not-allowed' : 'bg-[#7209b7] hover:bg-[#5f32ad]'}`}>
+                                                    {isApplied ? 'Applied' : 'Apply Now'}
+                                                </Button>
+                                            </div>
+                                        </div>
+                                        <div className='flex items-center gap-2 mt-4'>
+                                            <Badge className={'text-blue-700 font-bold max-sm:text-lg'} variant="ghost">{singleJob?.position} Positions</Badge>
+                                            <Badge className={'text-[#F83002] font-bold max-sm:text-lg'} variant="ghost">{singleJob?.jobType}</Badge>
+                                            <Badge className={'text-[#7209b7] font-bold max-sm:text-lg'} variant="ghost">{singleJob?.salary}LPA</Badge>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className='flex items-center gap-2 mt-4'>
-                                    <Badge className={'text-blue-700 font-bold max-sm:text-lg'} variant="ghost">{singleJob?.position} Positions</Badge>
-                                    <Badge className={'text-[#F83002] font-bold max-sm:text-lg'} variant="ghost">{singleJob?.jobType}</Badge>
-                                    <Badge className={'text-[#7209b7] font-bold max-sm:text-lg'} variant="ghost">{singleJob?.salary}LPA</Badge>
+                                <h1 className='border-b-2 border-b-gray-800 font-medium py-4 max-sm:text-xl'>Job Description</h1>
+                                <div className='my-4 max-sm:text-lg max-sm:font-bold'>
+                                    <h1 className='font-bold my-1'>Role : <span className='pl-1 font-normal text-gray-800'>{singleJob?.title}</span></h1>
+                                    <h1 className='font-bold my-1'>Location : <span className='pl-1 font-normal text-gray-800'>{singleJob?.location}</span></h1>
+                                    <h1 className='font-bold my-1'>Description : <span className='pl-1 font-normal text-gray-800'>{singleJob?.description}</span></h1>
+                                    <h1 className='font-bold my-1'>Experience : <span className='pl-1 font-normal text-gray-800'>{singleJob?.experience} yrs</span></h1>
+                                    <h1 className='font-bold my-1'>Salary : <span className='pl-1 font-normal text-gray-800'>{singleJob?.salary}LPA</span></h1>
+                                    <h1 className='font-bold my-1'>Total Applicants : <span className='pl-1 font-normal text-gray-800'>{singleJob?.applications?.length}</span></h1>
+                                    <h1 className='font-bold my-1'>Posted Date : <span className='pl-1 font-normal text-gray-800'>{singleJob?.createdAt.split("T")[0]}</span></h1>
                                 </div>
                             </div>
                         </div>
-                        <h1 className='border-b-2 border-b-gray-800 font-medium py-4 max-sm:text-xl'>Job Description</h1>
-                        <div className='my-4 max-sm:text-lg max-sm:font-bold'>
-                            <h1 className='font-bold my-1'>Role : <span className='pl-1 font-normal text-gray-800'>{singleJob?.title}</span></h1>
-                            <h1 className='font-bold my-1'>Location : <span className='pl-1 font-normal text-gray-800'>{singleJob?.location}</span></h1>
-                            <h1 className='font-bold my-1'>Description : <span className='pl-1 font-normal text-gray-800'>{singleJob?.description}</span></h1>
-                            <h1 className='font-bold my-1'>Experience : <span className='pl-1 font-normal text-gray-800'>{singleJob?.experience} yrs</span></h1>
-                            <h1 className='font-bold my-1'>Salary : <span className='pl-1 font-normal text-gray-800'>{singleJob?.salary}LPA</span></h1>
-                            <h1 className='font-bold my-1'>Total Applicants : <span className='pl-1 font-normal text-gray-800'>{singleJob?.applications?.length}</span></h1>
-                            <h1 className='font-bold my-1'>Posted Date : <span className='pl-1 font-normal text-gray-800'>{singleJob?.createdAt.split("T")[0]}</span></h1>
-                        </div>
-                    </div>
-                </div>
+                    </>) : (
+                        <>
+                            <div className='text-4xl text-gray-800 py-40 font-bold flex justify-center'>
+                                <h1> Please signup / login first</h1>
+                            </div>
+                        </>
+                    )
+                }
+
             </div>
 
             <Footer />
