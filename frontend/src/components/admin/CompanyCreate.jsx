@@ -18,8 +18,7 @@ const CompanyCreate = () => {
     const registerNewCompany = async () => {
         try {
             const res = await axios.post(`${COMPANY_API_END_POINT}/register`, { companyName }, {
-                headers: { 'Content-Type': 'application/json' },
-                withCredentials: true
+                headers: { 'Content-Type': 'application/json' }, withCredentials: true
             });
             //validation-data
             if (res?.data?.success) {
@@ -31,9 +30,9 @@ const CompanyCreate = () => {
         }
         catch (error) {
             console.log(error);
+            toast.error(error.response.data.message);
         }
     }
-
     return (
         <div>
             <Navbar />

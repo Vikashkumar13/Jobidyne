@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../shared/Navbar'
 import { Button } from '../ui/button'
 import { ArrowLeft, Loader2 } from 'lucide-react'
-import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import axios from 'axios'
 import { COMPANY_API_END_POINT } from '@/utils/constant'
@@ -74,7 +73,7 @@ const CompanySetup = () => {
             <div className='py-20'>
                 <div className='max-w-xl bg-blue-100 rounded-md px-5 py-5 mt-10 mr-auto ml-auto max-sm:min-w-[96%] max-sm:my-10 max-sm:mx-2'>
                     <div className='mb-2 text-blue-600'>
-                        <Link to={"/admin/jobs"} className='flex gap-1' ><ArrowLeft />Back</Link>
+                        <Link to={"/admin/companies"} className='flex gap-1' ><ArrowLeft />Back</Link>
                     </div>
                     <form onSubmit={submitHandler}>
                         <div className='my-5'>
