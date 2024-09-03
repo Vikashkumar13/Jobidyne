@@ -13,7 +13,7 @@ import Footer from '../shared/Footer'
 //ADMIN-> REGISTER COMPANY
 const CompanyCreate = () => {
     const navigate = useNavigate();
-    const [companyName, setCompanyName] = useState("");
+    const [companyName, setCompanyName] = useState();
     const dispatch = useDispatch();
     const registerNewCompany = async () => {
         try {
@@ -30,7 +30,7 @@ const CompanyCreate = () => {
         }
         catch (error) {
             console.log(error);
-            toast.error(error.response.data.message);
+            toast.error(error.message);
         }
     }
     return (
